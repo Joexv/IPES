@@ -534,7 +534,7 @@ namespace InstantExport
             comboBox2.Items.Clear();
             for (uint i = 0; i <= TRFnumberOfPokemon; i++)
             {
-                if (i <= 0x1FE)
+                if (i <= TRFnumberOfPokemon)
                     comboBox2.Items.Add(BinCharactersToString(10, (uint)(0xB * i + TRFpokemonNamesLocation)));
             }
             //Next pokemon
@@ -2072,7 +2072,7 @@ namespace InstantExport
             comboBox2.Items.Clear();
             for (uint ai = 0; ai <= TRFnumberOfPokemon; ai++)
             {
-                if (ai <= 0x1FE)
+                if (ai <= TRFnumberOfPokemon)
                     comboBox2.Items.Add(BinCharactersToString(10, (uint)(0xB * ai + TRFpokemonNamesLocation)));
             }
             progressBar1.Visible = false;
