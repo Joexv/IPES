@@ -16,12 +16,3 @@ F:\IPES\IPES\obj\Debug\IPES.csprojResolveAssemblyReference.cache
 F:\IPES\IPES\obj\Debug\InstantExport.Form1.resources
 F:\IPES\IPES\obj\Debug\IPES.csproj.GenerateResource.Cache
 F:\IPES\IPES\obj\Debug\IPES.Properties.Resources.resources
-C:\Users\joeol\Desktop\IPES\IPES\bin\Debug\IPES.exe.config
-C:\Users\joeol\Desktop\IPES\IPES\bin\Debug\IPES.exe
-C:\Users\joeol\Desktop\IPES\IPES\bin\Debug\IPES.pdb
-C:\Users\joeol\Desktop\IPES\IPES\obj\Debug\IPES.csprojResolveAssemblyReference.cache
-C:\Users\joeol\Desktop\IPES\IPES\obj\Debug\InstantExport.Form1.resources
-C:\Users\joeol\Desktop\IPES\IPES\obj\Debug\IPES.Properties.Resources.resources
-C:\Users\joeol\Desktop\IPES\IPES\obj\Debug\IPES.csproj.GenerateResource.Cache
-C:\Users\joeol\Desktop\IPES\IPES\obj\Debug\IPES.exe
-C:\Users\joeol\Desktop\IPES\IPES\obj\Debug\IPES.pdb

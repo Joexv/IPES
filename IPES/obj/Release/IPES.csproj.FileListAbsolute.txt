@@ -16,21 +16,12 @@ F:\IPES\IPES\obj\Release\IPES.csprojResolveAssemblyReference.cache
 F:\IPES\IPES\obj\Release\InstantExport.Form1.resources
 F:\IPES\IPES\obj\Release\IPES.csproj.GenerateResource.Cache
 F:\IPES\IPES\obj\Release\IPES.Properties.Resources.resources
-C:\Users\Joexv\Desktop\New folder (2)\IPES-master\IPES\bin\Release\IPES.exe.config
-C:\Users\Joexv\Desktop\New folder (2)\IPES-master\IPES\obj\Release\IPES.exe
-C:\Users\Joexv\Desktop\New folder (2)\IPES-master\IPES\obj\Release\IPES.pdb
-C:\Users\Joexv\Desktop\New folder (2)\IPES-master\IPES\bin\Release\IPES.exe
-C:\Users\Joexv\Desktop\New folder (2)\IPES-master\IPES\bin\Release\IPES.pdb
-C:\Users\Joexv\Desktop\New folder (2)\IPES-master\IPES\obj\Release\IPES.csprojResolveAssemblyReference.cache
-C:\Users\Joexv\Desktop\New folder (2)\IPES-master\IPES\obj\Release\InstantExport.Form1.resources
-C:\Users\Joexv\Desktop\New folder (2)\IPES-master\IPES\obj\Release\IPES.Properties.Resources.resources
-C:\Users\Joexv\Desktop\New folder (2)\IPES-master\IPES\obj\Release\IPES.csproj.GenerateResource.Cache
-C:\Users\joeol\Desktop\IPES\IPES\bin\Release\IPES.exe.config
-C:\Users\joeol\Desktop\IPES\IPES\obj\Release\IPES.exe
-C:\Users\joeol\Desktop\IPES\IPES\obj\Release\IPES.pdb
-C:\Users\joeol\Desktop\IPES\IPES\obj\Release\IPES.csprojResolveAssemblyReference.cache
-C:\Users\joeol\Desktop\IPES\IPES\obj\Release\InstantExport.Form1.resources
-C:\Users\joeol\Desktop\IPES\IPES\obj\Release\IPES.Properties.Resources.resources
-C:\Users\joeol\Desktop\IPES\IPES\obj\Release\IPES.csproj.GenerateResource.Cache
-C:\Users\joeol\Desktop\IPES\IPES\bin\Release\IPES.exe
-C:\Users\joeol\Desktop\IPES\IPES\bin\Release\IPES.pdb
+C:\Users\Joexv\Desktop\IPES-master\IPES\bin\Release\IPES.exe.config
+C:\Users\Joexv\Desktop\IPES-master\IPES\obj\Release\IPES.exe
+C:\Users\Joexv\Desktop\IPES-master\IPES\obj\Release\IPES.pdb
+C:\Users\Joexv\Desktop\IPES-master\IPES\bin\Release\IPES.exe
+C:\Users\Joexv\Desktop\IPES-master\IPES\bin\Release\IPES.pdb
+C:\Users\Joexv\Desktop\IPES-master\IPES\obj\Release\IPES.csprojResolveAssemblyReference.cache
+C:\Users\Joexv\Desktop\IPES-master\IPES\obj\Release\InstantExport.Form1.resources
+C:\Users\Joexv\Desktop\IPES-master\IPES\obj\Release\IPES.Properties.Resources.resources
+C:\Users\Joexv\Desktop\IPES-master\IPES\obj\Release\IPES.csproj.GenerateResource.Cache

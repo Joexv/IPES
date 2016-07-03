@@ -66,11 +66,6 @@ namespace InstantExport
                         if (i <= numberOfPokemon)
                             comboBox1.Items.Add(ROMCharactersToString(10, (uint)(0xB * i + pokemonNamesLocation)));
                     }
-                    for (uint i = 0; i <= numberOfItems; i++)
-                    {
-                        if (i <= numberOfItems)
-                            ItemBox1.Items.Add(ROMCharactersToString(11, (uint)(44 * i + itemTable)));
-                    }
                     StatOffset.Text = "0x" + PokemonStats.ToString("x4");
                     NameOffset.Text = "0x" + pokemonNamesLocation.ToString("x4");
                     ofd2.Filter = "InstaTransfer TRF (*.TRF)|*.TRF"; //Opens TRF file
@@ -223,163 +218,7 @@ namespace InstantExport
             br.BaseStream.Seek(Offset + 25, SeekOrigin.Begin);
             string Cint = Convert.ToString(br.ReadByte());
             IColor.Text = "Color: " + GetColor(Cint);
-            //EV
-            br.BaseStream.Seek(Offset + 10, SeekOrigin.Begin);
-            string byte1 = Convert.ToString(br.ReadByte());
-
-            br.BaseStream.Seek(Offset + 11, SeekOrigin.Begin);
-            string byte2 = Convert.ToString(br.ReadByte());
-
-            byte[] bytes = new[] { (byte)Convert.ToInt32(byte1), (byte)Convert.ToInt32(byte2) };
-            #region EV
-            System.Collections.BitArray array = new System.Collections.BitArray(bytes);
-            {
-                for (int i = 0, j = 1; i < 11; i = (i + 2), j = (j + 2))
-                {
-                    if (array[i] == false)
-                    {
-                        if (array[j] == false)
-                        {
-                            if (i == 0)
-                            {
-                                IHPEV.Text = "HP 0";
-                            }
-                            else if (i == 2)
-                            {
-                                IAttackEV.Text = "ATK 0";
-                            }
-                            else if (i == 4)
-                            {
-                                IDefenseEV.Text = "DEF 0";
-                            }
-                            else if (i == 6)
-                            {
-                                ISpeedEV.Text = "SPD 0";
-                            }
-                            else if (i == 8)
-                            {
-                                ISAttackEV.Text = "S.ATK 0";
-                            }
-                            else if (i == 10)
-                            {
-                                ISDefenseEV.Text = "S.DEF 0";
-                            }
-                        }
-
-                        else
-                        {
-                            if (i == 0)
-                            {
-                                IHPEV.Text = "HP 2";
-                            }
-                            else if (i == 2)
-                            {
-                                IAttackEV.Text = "ATK 2";
-                            }
-                            else if (i == 4)
-                            {
-                                IDefenseEV.Text = "DEF 2";
-                            }
-                            else if (i == 6)
-                            {
-                                ISpeedEV.Text = "SPD 2";
-                            }
-                            else if (i == 8)
-                            {
-                                ISAttackEV.Text = "S.ATK 2";
-                            }
-                            else if (i == 10)
-                            {
-                                ISDefenseEV.Text = "S.DEF 2";
-                            }
-                        }
-                    }
-
-                    else
-                    {
-                        if (array[j] == false)
-                        {
-                            if (i == 0)
-                            {
-                                IHPEV.Text = "HP 1";
-                            }
-                            else if (i == 2)
-                            {
-                                IAttackEV.Text = "ATK 1";
-                            }
-                            else if (i == 4)
-                            {
-                                IDefenseEV.Text = "DEF 1";
-                            }
-                            else if (i == 6)
-                            {
-                                ISpeedEV.Text = "SPD 1";
-                            }
-                            else if (i == 8)
-                            {
-                                ISAttackEV.Text = "S.ATK 1";
-                            }
-                            else if (i == 10)
-                            {
-                                ISDefenseEV.Text = "S.DEF 1";
-                            }
-                        }
-
-                        else
-                        {
-                            if (i == 0)
-                            {
-                                IHPEV.Text = "HP 3";
-                            }
-                            else if (i == 2)
-                            {
-                                IAttackEV.Text = "ATK 3";
-                            }
-                            else if (i == 4)
-                            {
-                                IDefenseEV.Text = "DEF 3";
-                            }
-                            else if (i == 6)
-                            {
-                                ISpeedEV.Text = "SPD 3";
-                            }
-                            else if (i == 8)
-                            {
-                                ISAttackEV.Text = "S.ATK 3";
-                            }
-                            else if (i == 10)
-                            {
-                                ISDefenseEV.Text = "S.DEF 3";
-                            }
-                        }
-                    }
-                }
-            }
-            #endregion
-            //Item Loading
-            #region Items
-            int add = 0, index = 0;
-            br.BaseStream.Seek(Offset + 12, SeekOrigin.Begin);
-            byte[] array1 = br.ReadBytes(2);
-            add = array1[1];
-            index = array1[0];
-            for (; add != 0; add--)
-            {
-                index = index + 256;
-            }
-            ItemBox1.SelectedIndex = index;
-            ITem1.Text = ItemBox1.Text;
-            br.BaseStream.Seek(Offset + 14, SeekOrigin.Begin);
-            byte[] array2 = br.ReadBytes(2);
-            add = array2[1];
-            index = array2[0];
-            for (; add != 0; add--)
-            {
-                index = index + 256;
-            }
-            ItemBox1.SelectedIndex = index;
-            ITem2.Text = ItemBox1.Text;
-            #endregion
+            //Item Reading is broken and removed, will fix in the future
             br.Close();
 
         }
@@ -500,163 +339,6 @@ namespace InstantExport
             br.BaseStream.Seek(Offset + 25, SeekOrigin.Begin);
             string Cint = Convert.ToString(br.ReadByte());
             Color.Text = "Color: " + GetColor(Cint);
-
-            //EV
-            br.BaseStream.Seek(Offset + 10, SeekOrigin.Begin);
-            string Ibyte1 = Convert.ToString(br.ReadByte());
-
-            br.BaseStream.Seek(Offset + 11, SeekOrigin.Begin);
-            string Ibyte2 = Convert.ToString(br.ReadByte());
-
-            byte[] bytes = new[] { (byte)Convert.ToInt32(Ibyte1), (byte)Convert.ToInt32(Ibyte2) };
-
-            System.Collections.BitArray array = new System.Collections.BitArray(bytes);
-            {
-                for (int i = 0, j = 1; i < 11; i = (i + 2), j = (j + 2))
-                {
-                    if (array[i] == false)
-                    {
-                        if (array[j] == false)
-                        {
-                            if (i == 0)
-                            {
-                                HPEV.Text = "HP 0";
-                            }
-                            else if (i == 2)
-                            {
-                                AttackEV.Text = "ATK 0";
-                            }
-                            else if (i == 4)
-                            {
-                                DefenseEV.Text = "DEF 0";
-                            }
-                            else if (i == 6)
-                            {
-                                SpeedEV.Text = "SPD 0";
-                            }
-                            else if (i == 8)
-                            {
-                                SAttackEV.Text = "S.ATK 0";
-                            }
-                            else if (i == 10)
-                            {
-                                SDefenseEV.Text = "S.DEF 0";
-                            }
-                        }
-
-                        else
-                        {
-                            if (i == 0)
-                            {
-                                HPEV.Text = "HP 2";
-                            }
-                            else if (i == 2)
-                            {
-                                AttackEV.Text = "ATK 2";
-                            }
-                            else if (i == 4)
-                            {
-                                DefenseEV.Text = "DEF 2";
-                            }
-                            else if (i == 6)
-                            {
-                                SpeedEV.Text = "SPD 2";
-                            }
-                            else if (i == 8)
-                            {
-                                SAttackEV.Text = "S.ATK 2";
-                            }
-                            else if (i == 10)
-                            {
-                                SDefenseEV.Text = "S.DEF 2";
-                            }
-                        }
-                    }
-
-                    else
-                    {
-                        if (array[j] == false)
-                        {
-                            if (i == 0)
-                            {
-                                HPEV.Text = "HP 1";
-                            }
-                            else if (i == 2)
-                            {
-                                AttackEV.Text = "ATK 1";
-                            }
-                            else if (i == 4)
-                            {
-                                DefenseEV.Text = "DEF 1";
-                            }
-                            else if (i == 6)
-                            {
-                                SpeedEV.Text = "SPD 1";
-                            }
-                            else if (i == 8)
-                            {
-                                SAttackEV.Text = "S.ATK 1";
-                            }
-                            else if (i == 10)
-                            {
-                                SDefenseEV.Text = "S.DEF 1";
-                            }
-                        }
-
-                        else
-                        {
-                            if (i == 0)
-                            {
-                                HPEV.Text = "HP 3";
-                            }
-                            else if (i == 2)
-                            {
-                                AttackEV.Text = "ATK 3";
-                            }
-                            else if (i == 4)
-                            {
-                                DefenseEV.Text = "DEF 3";
-                            }
-                            else if (i == 6)
-                            {
-                                SpeedEV.Text = "SPD 3";
-                            }
-                            else if (i == 8)
-                            {
-                                SAttackEV.Text = "S.ATK 3";
-                            }
-                            else if (i == 10)
-                            {
-                                SDefenseEV.Text = "S.DEF 3";
-                            }
-                        }
-                    }
-                }
-            }
-            //Item Loading
-            #region Items
-            int add = 0, index = 0;
-            br.BaseStream.Seek(Offset + 12, SeekOrigin.Begin);
-            byte[] array1 = br.ReadBytes(2);
-            add = array1[1];
-            index = array1[0];
-            for (; add != 0; add--)
-            {
-                index = index + 256;
-            }
-            ItemBox1.SelectedIndex = index;
-            RItem1.Text = ItemBox1.Text;
-            br.BaseStream.Seek(Offset + 14, SeekOrigin.Begin);
-            byte[] array2 = br.ReadBytes(2);
-            add = array2[1];
-            index = array2[0];
-            for (; add != 0; add--)
-            {
-                index = index + 256;
-            }
-            ItemBox1.SelectedIndex = index;
-            RItem2.Text = ItemBox1.Text;
-            #endregion
             br.Close();
         }
 
@@ -664,14 +346,15 @@ namespace InstantExport
         private void TransferStats_Click(object sender, EventArgs e)
         {
 
+            //Transfer stats
             BinaryWriter bw = new BinaryWriter(File.OpenWrite(BinFile));
             BinaryReader br = new BinaryReader(File.OpenRead(currentROM));
-            uint vOut1 = Convert.ToUInt32(TRFPokemonStats);
-            uint vOut2 = Convert.ToUInt32(PokemonStats);
-            long Offset2 = vOut1 + (comboBox1.SelectedIndex * 28);
-            long Offset = vOut2 + (comboBox2.SelectedIndex * 28);
-            br.BaseStream.Position = Offset;
-            bw.BaseStream.Position = Offset2;
+            uint TRFStat1 = Convert.ToUInt32(TRFPokemonStats);
+            uint PokeStat1 = Convert.ToUInt32(PokemonStats);
+            long TRFOff = TRFStat1 + (comboBox2.SelectedIndex * 28);
+            long PokeOff = PokeStat1 + (comboBox1.SelectedIndex * 28);
+            br.BaseStream.Position = PokeOff;
+            bw.BaseStream.Position = TRFOff;
             byte[] BytesToWrite = br.ReadBytes(0x1C);
             bw.Write(BytesToWrite);
             bw.Close();
@@ -679,7 +362,8 @@ namespace InstantExport
 
 
             //Read Base Stats
-            Offset = TRFPokemonStats + (comboBox2.SelectedIndex * 0x1C);
+            br = new BinaryReader(File.OpenRead(BinFile));
+            long Offset = TRFPokemonStats + (comboBox2.SelectedIndex * 0x1C);
             br.BaseStream.Seek(Offset, SeekOrigin.Begin);
             IHp.Text = "HP " + Convert.ToString(br.ReadByte());
             br.BaseStream.Seek(Offset + 1, SeekOrigin.Begin);
@@ -800,52 +484,16 @@ namespace InstantExport
         {
             BinaryWriter bw = new BinaryWriter(File.OpenWrite(BinFile));
             BinaryReader br = new BinaryReader(File.OpenRead(currentROM));
-            uint vOut1 = Convert.ToUInt32(TRFpokemonNamesLocation);
-            uint vOut2 = Convert.ToUInt32(pokemonNamesLocation);
-            long Offset2 = vOut1 + (comboBox1.SelectedIndex * 11);
-            long Offset = vOut2 + (comboBox2.SelectedIndex * 11);
-            br.BaseStream.Position = Offset;
-            bw.BaseStream.Position = Offset2;
-            byte[] BytesToWrite = br.ReadBytes(0xB);
-            bw.Write(BytesToWrite);
-            br.Close();
-            bw.Close();
-            //Reloads Names
-            int Index = comboBox2.SelectedIndex + 1;
-            comboBox2.Items.Clear();
-            for (uint i = 0; i <= TRFnumberOfPokemon; i++)
-            {
-                if (i <= 0x1FE)
-                    comboBox2.Items.Add(BinCharactersToString(10, (uint)(0xB * i + TRFpokemonNamesLocation)));
-            }
-            comboBox2.SelectedIndex = Index;
-
-        }
-
-        //Transfer Both Name and stats while moving to next Pokemon
-        private void Next_Click(object sender, EventArgs e)
-        {
-            //Transfer stats
-            BinaryWriter bw = new BinaryWriter(File.OpenWrite(BinFile));
-            BinaryReader br = new BinaryReader(File.OpenRead(currentROM));
-            uint vOut1 = Convert.ToUInt32(TRFPokemonStats);
-            uint vOut2 = Convert.ToUInt32(PokemonStats);
-            long Offset2 = vOut1 + (comboBox1.SelectedIndex * 28);
-            long Offset = vOut2 + (comboBox2.SelectedIndex * 28);
-            br.BaseStream.Position = Offset;
-            bw.BaseStream.Position = Offset2;
-            byte[] BytesToWrite = br.ReadBytes(0x1C);
-            bw.Write(BytesToWrite);
             //Transfer name
-            vOut1 = Convert.ToUInt32(TRFpokemonNamesLocation);
-            vOut2 = Convert.ToUInt32(pokemonNamesLocation);
-            Offset2 = vOut1 + (comboBox1.SelectedIndex * 11);
-            Offset = vOut2 + (comboBox2.SelectedIndex * 11);
-            br.BaseStream.Position = Offset;
-            bw.BaseStream.Position = Offset2;
-            int Index = comboBox2.SelectedIndex;
-            BytesToWrite = br.ReadBytes(0xB);
+            uint TRFStat1 = Convert.ToUInt32(TRFpokemonNamesLocation);
+            uint PokeStat1 = Convert.ToUInt32(pokemonNamesLocation);
+            long TRFOff = TRFStat1 + (comboBox2.SelectedIndex * 11);
+            long PokeOff = PokeStat1 + (comboBox1.SelectedIndex * 11);
+            bw.BaseStream.Position = TRFOff;
+            br.BaseStream.Position = PokeOff;
+            Byte[] BytesToWrite = br.ReadBytes(0xB);
             bw.Write(BytesToWrite);
+            int test = comboBox2.SelectedIndex;
             br.Close();
             bw.Close();
             //Reloads Names
@@ -855,9 +503,46 @@ namespace InstantExport
                 if (i <= TRFnumberOfPokemon)
                     comboBox2.Items.Add(BinCharactersToString(10, (uint)(0xB * i + TRFpokemonNamesLocation)));
             }
+            comboBox2.SelectedIndex = test;
+
+        }
+
+        //Transfer Both Name and stats while moving to next Pokemon
+        private void Next_Click(object sender, EventArgs e)
+        {
+            //Transfer stats
+            BinaryWriter bw = new BinaryWriter(File.OpenWrite(BinFile));
+            BinaryReader br = new BinaryReader(File.OpenRead(currentROM));
+            uint TRFStat1 = Convert.ToUInt32(TRFPokemonStats);
+            uint PokeStat1 = Convert.ToUInt32(PokemonStats);
+            long TRFOff = TRFStat1 + (comboBox2.SelectedIndex * 28);
+            long PokeOff = PokeStat1 + (comboBox1.SelectedIndex * 28);
+            br.BaseStream.Position = PokeOff;
+            bw.BaseStream.Position = TRFOff;
+            byte[] BytesToWrite = br.ReadBytes(0x1C);
+            bw.Write(BytesToWrite);
+            //Transfer name
+            TRFStat1 = Convert.ToUInt32(TRFpokemonNamesLocation);
+            PokeStat1 = Convert.ToUInt32(pokemonNamesLocation);
+            TRFOff = TRFStat1 + (comboBox2.SelectedIndex * 11);
+            PokeOff = PokeStat1 + (comboBox1.SelectedIndex * 11);
+            bw.BaseStream.Position = TRFOff;
+            br.BaseStream.Position = PokeOff;
+            BytesToWrite = br.ReadBytes(0xB);
+            bw.Write(BytesToWrite);
+            int test = comboBox2.SelectedIndex;
+            br.Close();
+            bw.Close();
+            //Reloads Names
+            comboBox2.Items.Clear();
+            for (uint i = 0; i <= TRFnumberOfPokemon; i++)
+            {
+                if (i <= numberOfPokemon)
+                    comboBox2.Items.Add(BinCharactersToString(10, (uint)(0xB * i + TRFpokemonNamesLocation)));
+            }
             //Next pokemon
             comboBox1.SelectedIndex = (comboBox1.SelectedIndex + 1);
-            comboBox2.SelectedIndex = (Index + 1);
+            comboBox2.SelectedIndex = (test + 1);
         }
 
 
@@ -2390,7 +2075,7 @@ namespace InstantExport
             comboBox2.Items.Clear();
             for (uint ai = 0; ai <= TRFnumberOfPokemon; ai++)
             {
-                if (ai <= TRFnumberOfPokemon)
+                if (ai <= 0x1FE)
                     comboBox2.Items.Add(BinCharactersToString(10, (uint)(0xB * ai + TRFpokemonNamesLocation)));
             }
             progressBar1.Visible = false;
